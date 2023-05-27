@@ -1,0 +1,62 @@
+<div class="main">
+    <mat-card>
+    <mat-card-content class="card">
+       <!-- <select  class="category">
+        <option *ngFor="let category of allCategories" [value]="category">{{category}}</option>
+       </select> -->
+       <div class="search">
+        <input #searchinput (keyup)="searchProduct($event)" class="input" type="text" placeholder="Search for products">
+        <button (click)="submitSearch(searchinput.value)" class="iconbtn">
+            <mat-icon>search</mat-icon>
+        </button>
+       </div>
+       <mat-form-field>
+        <mat-select (closed)="onCategorySelected(selected)"  [(ngModel)]="selected">
+            <mat-option value="All products">All products</mat-option>
+          <mat-option [value]="option" *ngFor="let option of allCategories">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button style="width: 100px; padding: 0px;" color="primary" (click)="openDialog()">Add</button></mat-card-content>
+    </mat-card>
+  </div>
+<div class="list">
+    <mat-card>
+        <mat-card-content>
+            <div *ngIf="selectedarry !=0; else noproduct">
+                <div *ngFor="let product of selectedarry" >
+                
+                    <div class="wrapper">
+    
+                    <div  class="wrapper1">
+                        <a style="color: black;" routerLink="/details/{{product.id}}">
+                            <img [src]="product.thumbnail" alt="">
+                        </a>
+                        </div>
+                        <div class="wrapper2">
+                        <div class="textbox">
+                            <a style="color: black;" routerLink="/details/{{product.id}}">
+                                <h3>{{product.title}}</h3>
+                                <p>{{product.description}} </p></a>
+                            
+                        </div>                       
+                     </div>
+                    
+                     <div class="wrapper3">
+                        <h1>{{product.price |currency:'INR':'symbol':'2.0'}}</h1>
+                        <span>
+                            <button mat-stroked-button style="width: 100px; background-color: rgb(247, 247, 253);" (click)="edit(product)" color="primary">Edit</button>
+                            <button mat-stroked-button style="width: 100px; background-color: rgb(252, 250, 250);" (click)="deleteProduct(product.id)" color="warn">Delete</button>
+                        </span>
+                     </div> 
+                     
+                </div>
+                <hr>
+            </div>
+            </div>
+            <ng-template #noproduct>
+                <h1>NO product of selected category</h1>
+            </ng-template>
+        </mat-card-content>
+  </mat-card>
+</div>
+

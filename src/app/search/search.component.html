@@ -1,0 +1,39 @@
+<div class="list">
+    <mat-card>
+        <mat-card-content>
+            <div *ngFor="let product of searchResult" >
+                
+                <div class="wrapper">
+
+                <div  class="wrapper1">
+                    <a style="color: black;" routerLink="/details/{{product.id}}">
+                        <img [src]="product.thumbnail" alt="">
+                    </a>
+                    </div>
+                    <div class="wrapper2">
+                    <div class="textbox">
+                        <a style="color: black;" routerLink="/details/{{product.id}}">
+                            <h3>{{product.title}}</h3>
+                            <p>{{product.description}} </p></a>
+                        
+                    </div>                       
+                 </div>
+                
+                 <div class="wrapper3">
+                    <h1>{{product.price |currency:'INR':'symbol':'2.0'}}</h1>
+                    <!-- <span>
+                        <button mat-stroked-button style="width: 100px; background-color: rgb(247, 247, 253);" (click)="edit(product)" color="primary">Edit</button>
+                        <button mat-stroked-button style="width: 100px; background-color: rgb(252, 250, 250);" (click)="deleteProduct(product.id)" color="warn">Delete</button>
+                    </span> -->
+                 </div> 
+                 
+            </div>
+        
+    
+            <hr>
+        </div>
+
+         
+        </mat-card-content>
+  </mat-card>
+</div>

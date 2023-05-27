@@ -1,0 +1,30 @@
+.list{
+    margin:0 10%;
+
+}
+img {
+    width: 150px;
+    height: 150px;
+
+}
+.wrapper{
+    display: flex;
+    margin-top: 10px;
+}
+.wrapper2{
+    flex: 7;
+}
+.wrapper3{
+    text-align: center;
+}
+.wrapper3 h1{
+    margin-top: 20px;
+    font-weight: 500;
+}
+.textbox{
+    margin:10px 20px;
+}
+.textbox h3{
+    font-size: 20px;
+    font-weight: 500;
+}
