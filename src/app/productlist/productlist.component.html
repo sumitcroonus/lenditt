@@ -23,7 +23,7 @@
     <mat-card>
         <mat-card-content>
             <div *ngIf="selectedarry !=0; else noproduct">
-                <div *ngFor="let product of selectedarry" >
+                <div *ngFor="let product of selectedarry | paginate: { itemsPerPage: itemsPerPage, currentPage: p}" >
                 
                     <div class="wrapper">
     
@@ -56,6 +56,9 @@
             <ng-template #noproduct>
                 <h1>NO product of selected category</h1>
             </ng-template>
+            <div class="pages">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
         </mat-card-content>
   </mat-card>
 </div>

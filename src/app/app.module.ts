@@ -23,6 +23,7 @@ import { ProductComponent } from './product/product.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import { SearchComponent } from './search/search.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { SearchComponent } from './search/search.component';
     MatTableModule,
     MatExpansionModule,
     MatIconModule,
+    NgxPaginationModule,
     
   ],
   providers: [],

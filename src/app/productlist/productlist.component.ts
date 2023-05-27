@@ -30,6 +30,9 @@ export class ProductlistComponent implements OnInit {
   allCategories:any=[];
   selected:any="All products";
   selectedarry:any=[];
+  p:number=1;
+  itemsPerPage:number=3;
+  totalproduct:any;
 
    openDialog() {
     this.dialog.open(DialogComponent,{
@@ -42,14 +45,8 @@ export class ProductlistComponent implements OnInit {
       next:(res)=>{
         this.allProducts=res.products;
          this.selectedarry=res.products;
+         this.totalproduct=res.products.length;
         //  console.log(this.selectedarry);
-        
-        //  this.dataSource = new MatTableDataSource(this.allProducts);
-
-
-        //  for (const item of this.allProducts){
-        //   console.log(item + ":" +JSON.stringify(this.allProducts))
-        //  }
         //  console.log(this.allProducts);
         // console.log(typeof this.allProducts[1])
       },
@@ -100,6 +97,8 @@ export class ProductlistComponent implements OnInit {
     
  if(this.selected=="All products"){
  this.selectedarry=this.allProducts;
+ this.totalproduct=this.selectedarry.length;
+ console.log(this.totalproduct);
 }
 else if(this.selected!="All products"){
   this.api.getProduct().subscribe({
@@ -109,6 +108,8 @@ else if(this.selected!="All products"){
           return obj;
         }
        })
+       this.totalproduct=this.selectedarry.length;
+       console.log(this.totalproduct)
 }
 
 })
